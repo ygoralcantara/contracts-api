@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db-development:
+    container_name: dbDevelopment
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=api
+      - POSTGRES_USER=usr_bob
+      - POSTGRES_PASSWORD=homol
+    command: -c "listen_addresses=*"
+    ports:
+      - 5410:5432
+    networks:
+      - apiNetwork
+
+  express-api:
+    container_name: expressApi
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8080:8000
+    networks:
+      - apiNetwork
+    depends_on:
+      - db-development
+#    command: /usr/src/app/entrypoint.sh
+
+networks:
+  apiNetwork:
+    name: api-network
+    driver: bridge
