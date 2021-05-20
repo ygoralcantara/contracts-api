@@ -14,17 +14,17 @@ services:
     networks:
       - apiNetwork
 
-  express-api:
-    container_name: expressApi
-    build: .
-    volumes:
-      - .:/usr/src/app
-    ports:
-      - 8080:8000
-    networks:
-      - apiNetwork
-    depends_on:
-      - db-development
+#  nest-api:
+#    container_name: nestApi
+#    build: .
+#    volumes:
+#      - .:/usr/src/app
+#    ports:
+#      - 8080:8000
+#    networks:
+#      - apiNetwork
+#    depends_on:
+#      - db-development
 #    command: /usr/src/app/entrypoint.sh
 
 networks:

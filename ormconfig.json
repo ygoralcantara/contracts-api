@@ -1,0 +1,18 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5410,
+  "username": "usr_bob",
+  "password": "homol",
+  "database": "api",
+  "synchronize": true,
+  "entities": [
+    "**/*.entity{.ts,.js}"
+  ],
+  "migrations": [
+    "src/migration/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  }
+}
