@@ -5,10 +5,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { configService } from './config/config.service';
 import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
+import { UserService } from './user/user.service';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(configService.getTypeOrgmConfig()), UserModule],
+  imports: [
+    TypeOrmModule.forRoot(configService.getTypeOrgmConfig()),
+    UserModule,
+  ],
   controllers: [AppController, UserController],
-  providers: [AppService],
+  providers: [AppService, UserService],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
-import { Column, Entity } from 'typeorm';
+import { BeforeInsert, BeforeUpdate, Column, Entity } from 'typeorm';
 import { BaseEntity } from '../base/base.entity';
+import * as bcrypt from 'bcrypt';
 
 @Entity({ name: 'users' })
 export class UserEntity extends BaseEntity {
@@ -15,6 +16,15 @@ export class UserEntity extends BaseEntity {
   @Column({ type: 'varchar', unique: true, nullable: false })
   email: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: false, select: false })
   password: string;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  async hashPassword() {
+    this.password = await bcrypt.hashSync(
+      this.password,
+      bcrypt.genSaltSync(10),
+    );
+  }
 }
