@@ -19,11 +19,11 @@ export class UserController {
     @Body(new ValidationPipe()) createUserDto: CreateUserDto,
     @Res() response: Response,
   ) {
-    const checkIfUserExists = await this.userService.checkIfUserExists(
+    const userExist = await this.userService.findOneByUsernameOrEmail(
       createUserDto.username,
       createUserDto.email,
     );
-    if (checkIfUserExists) {
+    if (userExist !== undefined) {
       return response.status(HttpStatus.BAD_REQUEST).send({
         status: HttpStatus.BAD_REQUEST,
         message: `User ${createUserDto.username} already exist`,

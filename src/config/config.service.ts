@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { JwtModuleOptions } from '@nestjs/jwt';
 
 dotenv.config();
 
@@ -45,6 +46,17 @@ class ConfigService {
       },
     };
   }
+
+  getSecretkey(): string {
+    return this.getValue('SECRET_KEY');
+  }
+
+  getJwtConfig(): JwtModuleOptions {
+    return {
+      secret: this.getSecretkey(),
+      signOptions: { expiresIn: '60s' },
+    };
+  }
 }
 
 const configService = new ConfigService(process.env).ensureValues([
@@ -54,6 +66,7 @@ const configService = new ConfigService(process.env).ensureValues([
   'DB_DATABASE',
   'DB_PORT',
   'DB_SYNCHRONIZE',
+  'SECRET_KEY',
 ]);
 
 export { configService };

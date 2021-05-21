@@ -18,8 +18,11 @@ export class UserService {
     );
   }
 
-  async checkIfUserExists(username: string, email: string): Promise<boolean> {
-    const user = await this.userRepository
+  async findOneByUsernameOrEmail(
+    username: string,
+    email: string,
+  ): Promise<UserEntity | undefined> {
+    return await this.userRepository
       .createQueryBuilder()
       .where('username = :username', {
         username: username,
@@ -28,7 +31,9 @@ export class UserService {
         email: email,
       })
       .getOne();
+  }
 
-    return user !== undefined;
+  async findOne(username: string): Promise<UserEntity> {
+    return await this.userRepository.findOne({ username: username });
   }
 }
