@@ -21,6 +21,12 @@ export class ViacepController {
     @Res() response: Response,
   ) {
     const res = await this.viacepService.findAddressByZipcode(zipCode);
+    if (!res) {
+      return response.send({
+        statusCode: HttpStatus.NOT_FOUND,
+        message: `Postal code ${zipCode} don't found`,
+      });
+    }
 
     return response.send({
       statusCode: HttpStatus.OK,

@@ -9,8 +9,11 @@ export class ViacepService {
 
   async findAddressByZipcode(zipCode: string): Promise<ViacepDto> {
     const url = `${ViacepEnum.URI}/${zipCode}/${ViacepEnum.PAYLOAD_TYPE}`;
-    const response = await this.httpService.get(url).toPromise();
-
-    return response.data;
+    try {
+      const response = await this.httpService.get(url).toPromise();
+      return response.data;
+    } catch (err) {
+      return null;
+    }
   }
 }
