@@ -14,18 +14,18 @@ services:
     networks:
       - apiNetwork
 
-#  nest-api:
-#    container_name: nestApi
-#    build: .
-#    volumes:
-#      - .:/usr/src/app
-#    ports:
-#      - 8080:8000
-#    networks:
-#      - apiNetwork
-#    depends_on:
-#      - db-development
-#    command: /usr/src/app/entrypoint.sh
+  nest-api:
+    container_name: nestApi
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8080:8000
+    networks:
+      - apiNetwork
+    depends_on:
+      - db-development
+    command: /usr/src/app/entrypoint.sh
 
 networks:
   apiNetwork:

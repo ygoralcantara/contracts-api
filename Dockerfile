@@ -5,7 +5,7 @@ WORKDIR /usr/src/temp
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --loglevel=warn
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
