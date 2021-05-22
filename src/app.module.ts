@@ -8,6 +8,7 @@ import { ServiceIndustryController } from './service-industry/service-industry.c
 import { ServiceIndustryModule } from './service-industry/service-industry.module';
 import { ContractController } from './contract/contract.controller';
 import { ContractModule } from './contract/contract.module';
+import { ViacepModule } from './viacep/viacep.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ContractModule } from './contract/contract.module';
     AuthModule,
     ServiceIndustryModule,
     ContractModule,
+    ViacepModule,
   ],
   controllers: [AppController],
   providers: [AppService],

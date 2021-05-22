@@ -1,0 +1,1099 @@
+{
+	"info": {
+		"_postman_id": "322af6e0-e7fc-4b0a-bc65-fd6b9c6a9c18",
+		"name": "Contracts-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"userbob\",\n    \"password\": \"teste@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "auth/login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"userbob\",\n    \"password\": \"teste@123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f0-lVyPv9Fjirepz5yMYXjwNVaCrp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 00:29:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Authenticated with success\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJib2IiLCJpYXQiOjE2MjE2NDMzODEsImV4cCI6MTYyMTY0Njk4MX0.ndbEU0zMidaAWN_bFmL3ij7-V3J1KHpo_BOPdbbV4EQ\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"userbob\",\n    \"firstName\": \"Bob\",\n    \"email\": \"bob@gmail.com\",\n    \"password\": \"teste@123\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"userbob\",\n    \"first_name\": \"Bob\",\n    \"email\": \"bob@gmail.com\",\n    \"password\": \"teste@123\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "149"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"95-QMFf+von472IaORpAPoyWHXngiI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 May 2021 22:19:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"message\": \"User created with success\",\n    \"data\": {\n        \"username\": \"userbob\",\n        \"first_name\": \"Bob\",\n        \"email\": \"bob@gmail.com\",\n        \"last_name\": null,\n        \"id\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ServiceIndustry",
+			"item": [
+				{
+					"name": "/service-industry",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpfCnpj\": \"01201201234520\",\n    \"name\": \"Enterprise\",\n    \"email\": \"bob@gmail.com\",\n    \"type\": \"cnpj\",\n    \"zipCode\": \"58051-330\",\n    \"street\": \"Rua ...\",\n    \"number\": 45,\n    \"district\": \"Bancários\",\n    \"city\": \"João Pessoa\",\n    \"stateCode\": \"PB\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-industry",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-industry"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/service-industry",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cpfCnpj\": \"01201201234520\",\n    \"name\": \"Enterprise\",\n    \"email\": \"bob@gmail.com\",\n    \"type\": \"cnpj\",\n    \"zipCode\": \"58051-330\",\n    \"street\": \"Rua ...\",\n    \"number\": 45,\n    \"district\": \"Bancários\",\n    \"city\": \"João Pessoa\",\n    \"stateCode\": \"PB\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/service-industry",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service-industry"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "501"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f5-S8JfugvEBTEo0MFInHMx/Phv6HQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 00:28:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"message\": \"ServiceIndustry created with success\",\n    \"data\": {\n        \"id\": 4,\n        \"cpfCnpj\": \"01201201234520\",\n        \"name\": \"Enterprise\",\n        \"email\": \"bob@gmail.com\",\n        \"type\": \"cnpj\",\n        \"address\": {\n            \"cpfCnpj\": \"01201201234520\",\n            \"name\": \"Enterprise\",\n            \"email\": \"bob@gmail.com\",\n            \"type\": \"cnpj\",\n            \"zipCode\": \"58051-330\",\n            \"street\": \"Rua ...\",\n            \"number\": 45,\n            \"district\": \"Bancários\",\n            \"city\": \"João Pessoa\",\n            \"stateCode\": \"PB\",\n            \"deleted_at\": null,\n            \"addressLine\": null,\n            \"id\": 4,\n            \"created_at\": \"2021-05-22T03:28:00.802Z\",\n            \"updated_at\": \"2021-05-22T03:28:00.802Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/service-industry/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Enterprise Updated\",\n    \"email\": \"updated-bob@gmail.com\",\n    \"type\": \"cnpj\",\n    \"zipCode\": \"58051330\",\n    \"street\": \"Rua ...\",\n    \"number\": 60,\n    \"district\": \"Centro\",\n    \"city\": \"João Pessoa\",\n    \"stateCode\": \"PB\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/service-industry/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-industry",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/service-industry/:id",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Enterprise Updated\",\n    \"email\": \"updated-bob@gmail.com\",\n    \"type\": \"cnpj\",\n    \"zipCode\": \"58051330\",\n    \"street\": \"Rua ...\",\n    \"number\": 60,\n    \"district\": \"Centro\",\n    \"city\": \"João Pessoa\",\n    \"stateCode\": \"PB\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/service-industry/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service-industry",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "342"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"156-n73ntJA/f70PKV8Swh/iqcjTka4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 11:16:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Service industry of id 1 updated with success\",\n    \"data\": {\n        \"id\": 1,\n        \"cpfCnpj\": \"01201201234520\",\n        \"name\": \"Enterprise Updated\",\n        \"email\": \"updated-bob@gmail.com\",\n        \"type\": \"cnpj\",\n        \"address\": {\n            \"id\": 1,\n            \"zipCode\": \"58051330\",\n            \"street\": \"Rua ...\",\n            \"number\": 60,\n            \"addressLine\": null,\n            \"district\": \"Centro\",\n            \"city\": \"João Pessoa\",\n            \"stateCode\": \"PB\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/service-industry",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/service-industry?page=2&limit=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-industry"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/service-industry",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/service-industry?page=2&limit=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service-industry"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "561"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"231-3Mew8tAnMbHd7WdRoqwYhwG9fuI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 00:39:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"page\": \"2\",\n    \"limit\": \"2\",\n    \"totalCount\": 4,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"cpfCnpj\": \"01201201234511\",\n            \"name\": \"Enterprise\",\n            \"email\": \"bob@gmail.com\",\n            \"type\": \"cnpj\",\n            \"address\": {\n                \"id\": 3,\n                \"zipCode\": \"58051-330\",\n                \"street\": \"Rua ...\",\n                \"number\": 45,\n                \"addressLine\": null,\n                \"district\": \"Bancários\",\n                \"city\": \"João Pessoa\",\n                \"stateCode\": \"PB\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"cpfCnpj\": \"01201201234520\",\n            \"name\": \"Enterprise\",\n            \"email\": \"bob@gmail.com\",\n            \"type\": \"cnpj\",\n            \"address\": {\n                \"id\": 4,\n                \"zipCode\": \"58051-330\",\n                \"street\": \"Rua ...\",\n                \"number\": 45,\n                \"addressLine\": null,\n                \"district\": \"Bancários\",\n                \"city\": \"João Pessoa\",\n                \"stateCode\": \"PB\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/service-industry/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/service-industry/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-industry",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/service-industry/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/service-industry/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service-industry",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"111-yCN0R8dIWW2VneQiRrD6zndDp+4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 01:02:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"cpfCnpj\": \"01201201234557\",\n        \"name\": \"Enterprise\",\n        \"email\": \"bob@gmail.com\",\n        \"type\": \"cnpj\",\n        \"address\": {\n            \"id\": 1,\n            \"zipCode\": \"58051-330\",\n            \"street\": \"Rua ...\",\n            \"number\": 45,\n            \"addressLine\": null,\n            \"district\": \"Bancários\",\n            \"city\": \"João Pessoa\",\n            \"stateCode\": \"PB\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/service-industry/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/service-industry/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service-industry",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contract",
+			"item": [
+				{
+					"name": "/contract",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Internet\",\n    \"serviceProvider\": \"Internet\",\n    \"contractStart\": \"2020-10-10\",\n    \"contractEnd\": \"2021-10-10\",\n    \"serviceIndustryId\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contract",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contract"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/contract",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Internet\",\n    \"serviceProvider\": \"Internet\",\n    \"contractStart\": \"2020-10-10\",\n    \"contractEnd\": \"2021-10-10\",\n    \"serviceIndustryId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contract",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contract"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "551"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"227-Z4fbVhdYYHHtlXrGGdDgFuGOTls\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 11:43:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Contract created with success\",\n    \"data\": {\n        \"name\": \"Internet\",\n        \"serviceProvider\": \"Internet\",\n        \"contractStart\": \"2020-10-10\",\n        \"contractEnd\": \"2021-10-10\",\n        \"serviceIndustry\": {\n            \"id\": 1,\n            \"cpfCnpj\": \"01201201234520\",\n            \"name\": \"Enterprise Updated\",\n            \"email\": \"updated-bob@gmail.com\",\n            \"type\": \"cnpj\",\n            \"address\": {\n                \"id\": 1,\n                \"zipCode\": \"58051330\",\n                \"street\": \"Rua ...\",\n                \"number\": 60,\n                \"addressLine\": null,\n                \"district\": \"Centro\",\n                \"city\": \"João Pessoa\",\n                \"stateCode\": \"PB\"\n            }\n        },\n        \"deletedAt\": null,\n        \"id\": 5,\n        \"createdAt\": \"2021-05-22T14:43:38.868Z\",\n        \"updatedAt\": \"2021-05-22T14:43:38.868Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/contract",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"HamburgSud\",\n    \"serviceProvider\": \"Comex\",\n    \"contractStart\": \"2020-10-10\",\n    \"contractEnd\": \"2021-11-10\",\n    \"serviceIndustryId\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contract/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/contract",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"HamburgSud\",\n    \"serviceProvider\": \"Comex\",\n    \"contractStart\": \"2020-10-10\",\n    \"contractEnd\": \"2021-11-10\",\n    \"serviceIndustryId\": \"2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contract/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contract",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"122-TCv9H9h7NK9sV7H69lqWkfcxMN8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 12:13:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Contract updated with success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"HamburgSud\",\n        \"serviceProvider\": \"Comex\",\n        \"contractStart\": \"2020-10-10\",\n        \"contractEnd\": \"2021-11-10\",\n        \"serviceIndustry\": {\n            \"id\": 2,\n            \"cpfCnpj\": \"01201201234123\",\n            \"name\": \"Enterprise\",\n            \"email\": \"bob@gmail.com\",\n            \"type\": \"cnpj\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/contract",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contract?page=1&limit=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contract"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/contract",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contract?page=1&limit=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contract"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "544"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"220-prWIMVS8j/CtaTARAqrHHvU2LcY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 12:30:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"page\": \"1\",\n    \"limit\": \"2\",\n    \"totalCount\": 5,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"HamburgSud\",\n            \"serviceProvider\": \"Comex\",\n            \"contractStart\": \"2020-10-10\",\n            \"contractEnd\": \"2021-11-10\",\n            \"serviceIndustry\": {\n                \"id\": 1,\n                \"cpfCnpj\": \"01201201234520\",\n                \"name\": \"Enterprise Updated\",\n                \"email\": \"updated-bob@gmail.com\",\n                \"type\": \"cnpj\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Internet\",\n            \"serviceProvider\": \"Internet\",\n            \"contractStart\": \"2020-10-10\",\n            \"contractEnd\": \"2021-10-10\",\n            \"serviceIndustry\": {\n                \"id\": 1,\n                \"cpfCnpj\": \"01201201234520\",\n                \"name\": \"Enterprise Updated\",\n                \"email\": \"updated-bob@gmail.com\",\n                \"type\": \"cnpj\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/contract/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contract/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/contract/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contract/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contract",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-LcxZN6t2BW/pREQsp6enSESp2yI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 12:28:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"HamburgSud\",\n        \"serviceProvider\": \"Comex\",\n        \"contractStart\": \"2020-10-10\",\n        \"contractEnd\": \"2021-11-10\",\n        \"serviceIndustry\": {\n            \"id\": 1,\n            \"cpfCnpj\": \"01201201234520\",\n            \"name\": \"Enterprise Updated\",\n            \"email\": \"updated-bob@gmail.com\",\n            \"type\": \"cnpj\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/contract/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/contract/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/contract/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/contract/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contract",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-uVinybfBirtQIER5G9zaPAofnVY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 May 2021 12:36:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Contract of id 1 deleted with success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Viacep",
+			"item": [
+				{
+					"name": "viacep/:zipcode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/viacep/58600000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"viacep",
+								"58600000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

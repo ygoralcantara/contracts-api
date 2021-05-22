@@ -2,6 +2,8 @@ import * as dotenv from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { JwtModuleOptions } from '@nestjs/jwt';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { HttpModuleOptions } from '@nestjs/common';
+import { timeout } from 'rxjs/operators';
 
 dotenv.config();
 
@@ -57,6 +59,13 @@ class ConfigService {
     return {
       secret: this.getSecretkey(),
       signOptions: { expiresIn: '1h' },
+    };
+  }
+
+  getHttpModuleConfig(): HttpModuleOptions {
+    return {
+      timeout: 5000,
+      maxRedirects: 5,
     };
   }
 }
