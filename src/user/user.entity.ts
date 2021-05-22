@@ -8,10 +8,10 @@ export class UserEntity extends BaseEntity {
   username: string;
 
   @Column({ type: 'varchar', nullable: false })
-  first_name: string;
+  firstName: string;
 
   @Column({ type: 'varchar', nullable: true })
-  last_name: string;
+  lastName: string;
 
   @Column({ type: 'varchar', unique: true, nullable: false })
   email: string;

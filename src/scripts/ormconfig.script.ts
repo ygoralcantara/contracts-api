@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import { configService } from '../config/config.service';
 
-fs.writeFileSync(
-  'ormconfig.json',
-  JSON.stringify(configService.getTypeOrgmConfig(), null, 2),
-);
+const { namingStrategy, ...typeOrmConfig } = configService.getTypeOrmConfig();
+
+fs.writeFileSync('ormconfig.json', JSON.stringify(typeOrmConfig, null, 2));

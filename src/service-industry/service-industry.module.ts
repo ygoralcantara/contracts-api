@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServiceIndustryEntity } from './service-industry.entity';
 import { AddressEntity } from './address.entity';
 import { ServiceIndustryController } from './service-industry.controller';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ServiceIndustryEntity, AddressEntity])],

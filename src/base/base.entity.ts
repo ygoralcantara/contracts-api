@@ -14,14 +14,14 @@ export abstract class BaseEntity {
     default: () => 'CURRENT_TIMESTAMP',
     select: false,
   })
-  created_at: Date;
+  createdAt: Date;
 
   @UpdateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
     select: false,
   })
-  updated_at: Date;
+  updatedAt: Date;
 
   @DeleteDateColumn({
     type: 'timestamp',
@@ -29,5 +29,5 @@ export abstract class BaseEntity {
     nullable: true,
     select: false,
   })
-  deleted_at: Date;
+  deletedAt: Date;
 }

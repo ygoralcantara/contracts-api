@@ -5,7 +5,7 @@
   "username": "usr_bob",
   "password": "homol",
   "database": "api",
-  "synchronize": true,
+  "synchronize": false,
   "entities": [
     "**/*.entity{.ts,.js}"
   ],

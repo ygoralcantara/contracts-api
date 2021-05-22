@@ -30,7 +30,7 @@ export class AppController {
     const accessToken = await this.authService.login(request.body);
 
     return response.send({
-      status: HttpStatus.OK,
+      statusCode: HttpStatus.OK,
       message: 'Authenticated with success',
       data: {
         access_token: accessToken,

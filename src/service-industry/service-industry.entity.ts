@@ -3,10 +3,10 @@ import { BaseEntity } from '../base/base.entity';
 import { AddressEntity } from './address.entity';
 import { ContractEntity } from '../contract/contract.entity';
 
-@Entity({ name: 'service_industy' })
+@Entity({ name: 'service_industry' })
 export class ServiceIndustryEntity extends BaseEntity {
   @Column({ type: 'varchar', unique: true, nullable: false })
-  cpf_cnpj: string;
+  cpfCnpj: string;
 
   @Column({ type: 'varchar', nullable: false })
   name: string;
@@ -17,10 +17,10 @@ export class ServiceIndustryEntity extends BaseEntity {
   @Column({ type: 'varchar', nullable: false })
   type: string;
 
-  @OneToOne(() => AddressEntity)
+  @OneToOne(() => AddressEntity, { cascade: ['remove', 'soft-remove'] })
   @JoinColumn()
   address: AddressEntity;
 
-  @OneToMany(() => ContractEntity, (contracts) => contracts.service_industry)
+  @OneToMany(() => ContractEntity, (contracts) => contracts.serviceIndustry)
   contracts: ContractEntity[];
 }

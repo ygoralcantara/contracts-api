@@ -4,7 +4,7 @@ import { BaseEntity } from '../base/base.entity';
 @Entity({ name: 'address' })
 export class AddressEntity extends BaseEntity {
   @Column({ type: 'varchar', nullable: false })
-  zip_code: string;
+  zipCode: string;
 
   @Column({ type: 'varchar', nullable: true })
   street: string;
@@ -13,7 +13,7 @@ export class AddressEntity extends BaseEntity {
   number: number;
 
   @Column({ type: 'varchar', nullable: true })
-  address_line: string;
+  addressLine: string;
 
   @Column({ type: 'varchar', nullable: true })
   district: string;
@@ -22,5 +22,5 @@ export class AddressEntity extends BaseEntity {
   city: string;
 
   @Column({ type: 'varchar', nullable: true })
-  state_code: string;
+  stateCode: string;
 }

@@ -25,15 +25,15 @@ export class UserController {
     );
     if (userExist !== undefined) {
       return response.status(HttpStatus.BAD_REQUEST).send({
-        status: HttpStatus.BAD_REQUEST,
+        statusCode: HttpStatus.BAD_REQUEST,
         message: `User ${createUserDto.username} already exist`,
       });
     }
-    const { password, created_at, updated_at, deleted_at, ...user } =
+    const { password, createdAt, updatedAt, deletedAt, ...user } =
       await this.userService.createUser(createUserDto);
 
     return response.send({
-      status: HttpStatus.CREATED,
+      statusCode: HttpStatus.CREATED,
       message: 'User created with success',
       data: user,
     });

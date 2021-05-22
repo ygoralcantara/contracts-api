@@ -8,17 +8,17 @@ export class ContractEntity extends BaseEntity {
   name: string;
 
   @Column({ type: 'varchar', nullable: false })
-  service_provider: string;
+  serviceProvider: string;
 
   @Column({ type: 'date', nullable: false })
-  contract_start: Date;
+  contractStart: Date;
 
   @Column({ type: 'date', nullable: false })
-  contract_end: Date;
+  contractEnd: Date;
 
   @ManyToOne(
     () => ServiceIndustryEntity,
     (service_industry) => service_industry.contracts,
   )
-  service_industry: ServiceIndustryEntity;
+  serviceIndustry: ServiceIndustryEntity;
 }

@@ -2,6 +2,7 @@ import {
   IsAlphanumeric,
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsString,
   MaxLength,
   MinLength,
@@ -15,9 +16,13 @@ export class CreateUserDto {
   @IsNotEmpty()
   readonly username: string;
 
-  readonly first_name?: string;
+  @IsOptional()
+  @IsString()
+  readonly firstName?: string;
 
-  readonly last_name?: string;
+  @IsOptional()
+  @IsString()
+  readonly lastName?: string;
 
   @IsEmail()
   @IsNotEmpty()

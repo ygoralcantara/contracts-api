@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class createServiceIndustryTable1621596093230
+export class createServiceIndustryTable1621596105230
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -13,7 +13,10 @@ export class createServiceIndustryTable1621596093230
             cpf_cnpj varchar not null unique,
             name varchar,
             email varchar not null,
-            type varchar not null
+            type varchar not null,
+            address_id integer not null,
+            constraint fk_service_industry_id foreign key (address_id)
+                references address (id)
         );
     `);
   }

@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { JwtModuleOptions } from '@nestjs/jwt';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 dotenv.config();
 
@@ -30,7 +31,7 @@ class ConfigService {
     return mode == 'prod' || mode == 'production';
   }
 
-  getTypeOrgmConfig(): TypeOrmModuleOptions {
+  getTypeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'postgres',
       host: this.getValue('DB_HOST'),
@@ -38,9 +39,10 @@ class ConfigService {
       username: this.getValue('DB_USERNAME'),
       password: this.getValue('DB_PASSWORD'),
       database: this.getValue('DB_DATABASE'),
-      synchronize: Boolean(this.getValue('DB_SYNCHRONIZE')),
+      synchronize: this.getValue('DB_SYNCHRONIZE') == 'true',
       entities: ['**/*.entity{.ts,.js}'],
       migrations: ['src/migration/*.ts'],
+      namingStrategy: new SnakeNamingStrategy(),
       cli: {
         migrationsDir: 'src/migration',
       },
@@ -54,7 +56,7 @@ class ConfigService {
   getJwtConfig(): JwtModuleOptions {
     return {
       secret: this.getSecretkey(),
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '1h' },
     };
   }
 }

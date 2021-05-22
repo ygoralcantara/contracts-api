@@ -14,10 +14,7 @@ export class createAddressTable1621596100217 implements MigrationInterface {
             address_line varchar,
             district varchar,
             city varchar,
-            state_code varchar,
-            service_industry_id integer not null,
-            constraint fk_service_industry_id foreign key (service_industry_id)
-                references service_industry (id)
+            state_code varchar
         );
     `);
   }

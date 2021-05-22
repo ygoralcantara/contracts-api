@@ -11,12 +11,12 @@ import { ContractModule } from './contract/contract.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(configService.getTypeOrgmConfig()),
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     AuthModule,
     ServiceIndustryModule,
     ContractModule,
   ],
-  controllers: [AppController, ServiceIndustryController, ContractController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
