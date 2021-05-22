@@ -21,6 +21,8 @@ export class ServiceIndustryEntity extends BaseEntity {
   @JoinColumn()
   address: AddressEntity;
 
-  @OneToMany(() => ContractEntity, (contracts) => contracts.serviceIndustry)
+  @OneToMany(() => ContractEntity, (contracts) => contracts.serviceIndustry, {
+    cascade: ['remove', 'soft-remove'],
+  })
   contracts: ContractEntity[];
 }
